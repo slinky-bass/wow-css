@@ -1,0 +1,465 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  color: #333;
+  font-size: 20px;
+}
+
+h2, h3 { 
+  text-align: center;  
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin: 15px auto;
+  color: #22ACE0;
+  text-transform: capitalize;
+}
+
+h3 {
+  font-size: 2rem;
+  margin: 0 auto;
+}
+
+img {
+
+}
+
+.example-container, .slide-points {
+  max-width: 500px;
+  margin: 1% auto 5% auto;
+  border: 1px #999 solid;
+  padding: 20px;
+}
+
+.image-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.slide-points {
+  padding-left: 45px;
+  list-style: disc;
+}
+
+.slide-points li {
+  padding: 10px;
+  font-size: 20px;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.chevron {
+  width: 13px;
+  height: 10px;
+  transition: rotate 300ms ease-in;
+}
+
+label, label .chevron {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:focus + label,
+input[type="radio"]:focus + label {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 20px;
+}
+
+/* ########################################################## */
+/* ######################### SLIDES ######################### */
+.slider-container {
+  position: relative;
+  height: 100vh;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+}
+
+.slide-content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 3px 3px 15px #999;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  background-image: url('../images/chevron.svg');
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: left center;
+}
+
+.next {
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.prev {
+  left: 0; 
+}
+
+.slider-container .slide:target {
+  z-index: 2;
+}
+/* ########################################################## */
+/* ################### CODE PREVIEW TABS #################### */
+pre {
+  white-space: pre-wrap !important;
+  font-size: 20px;
+}
+
+pre[class*="language-"] {
+  max-height: 77vh !important;
+  padding: 0 0 0 10px !important;
+}
+
+code {
+ white-space: pre-wrap !important;
+}
+
+/* ########################################################## */
+/* ############## CUSTOM STYLED CHECKBOX START ############## */
+.custom-checkbox-container {
+  margin: 0 auto;
+  background-color: #efefef;
+}
+
+.hidden-checkbox {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+}
+
+.label-checkbox {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  border-bottom: 1px #fff solid;
+  padding: 10px 0 10px 35px;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: color 400ms ease-in;
+}
+
+.label-checkbox::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  background-image: url('../images/location-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  vertical-align: middle;
+  opacity: 0;
+  transition: opacity 400ms ease-in;
+}
+
+.hidden-checkbox:checked + .label-checkbox::before {
+  opacity: 1;
+}
+
+
+.hidden-checkbox:checked + .label-checkbox {
+  color: #22ACE0;
+}
+/* ############## CUSTOM STYLED CHECKBOX END ################ */
+/* ########################################################## */
+/* ############## CUSTOM RADIO SELECT START ################# */
+.radio-switch {
+  float: left;
+  display: inline-block;
+  width: 100px;
+  margin: 0 0 0 27%;
+  border: 1px #22ACE0 solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 2%;
+  background-color: #fff;
+  text-align: center;
+  transition: background-color 300ms ease-in-out;
+}
+
+.radio-switch:last-of-type {
+  margin: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: none;
+}
+
+.radio.hidden-checkbox:checked + .radio-switch {
+  background-color: #22ACE0;
+  color: #fff;
+}
+
+/* ############### CUSTOM RADIO SELECT END ################## */
+/* ########################################################## */
+/* ############## CHECKBOX SLIDETOGGLE START ################ */
+.details {
+  overflow-y: hidden;
+  display: block;
+  width: 100%;
+  max-height: 0;
+  margin: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+}
+
+.details:hover {
+  will-change: contents;
+}
+
+.details-toggle.hidden-checkbox:checked ~ .details {
+  max-height: 1000px;
+  margin: 15px 0 0 0;
+  border: 1px #999 solid;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  opacity: 1;
+}
+
+/* ############### CHECKBOX SLIDETOGGLE END ################# */
+/* ########################################################## */
+/* ############### RADIO SELECT TABS START ################## */
+.tab-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.tab {
+  float: left;
+}
+
+.tab-label {
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  border-top: 1px #333 solid;
+  border-right: 1px #333 solid;
+  border-bottom: 1px #333 solid;
+  padding: 10px;
+  background-color: #efefef;
+  transition: background-color 300ms ease-in-out;
+}
+
+.tab:first-of-type .tab-label {
+  border-left: 1px #333 solid;
+}
+
+.tab-content {
+  position: absolute;
+  top: 39px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px #333 solid;
+  padding: 2%;
+  background-color: #fff;
+}
+
+.tab-content p {
+  font-size: 17px;
+  margin: 5px 0 10px 0;
+}
+
+.radio.hidden-checkbox:checked ~ .tab-content {
+  z-index: 1;
+}
+
+.radio.hidden-checkbox:checked + .tab-label {
+  color: #22ACE0;
+  background-color: #fff;
+  border-bottom: 1px #fff solid;
+  z-index: 2;
+}
+
+/* ################# RADIO SELECT TABS END ################## */
+/* ########################################################## */
+/* ############# CHECKBOX ACCORDION MENU START ############## */
+.accordion-menu {
+  border: 1px #22ACE0 solid;
+}
+
+.menu-item {
+  display: block;
+  width: 100%;
+  border-bottom: 1px #fff solid;
+  overflow: hidden;
+  text-align: center;
+}
+
+.menu-item:last-of-type {
+  border-bottom: none;
+}
+
+.menu-item label {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  background-color: #22ACE0;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.menu-item label:hover {
+  will-change: contents;
+}
+
+.submenu {
+  max-height: 0;
+  transition: max-height 400ms ease-in-out;
+}
+
+.submenu li {
+  height: 50px;
+  border-bottom: 1px #22ACE0 solid;
+  padding: 15px;
+}
+
+.submenu li:last-of-type {
+  border-bottom: none;
+}
+
+.menu.hidden-checkbox:checked ~ .submenu {
+  max-height: 1000px;
+}
+
+/* ############### CHECKBOX ACCORDION MENU END ############## */
+/* ########################################################## */
+/* ############# CHECKBOX DROPDOWN MENU START ############### */
+
+
+.dropdown .tab-content {
+  top: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.close-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.dropdown.hidden-checkbox:checked ~ .tab-content {
+  z-index: 1;
+  opacity: 1;
+}
+
+.dropdown.hidden-checkbox:checked ~ label {
+  z-index: 2;
+}
+
+/*GET THE CLOSE-MENU LABEL AND INPUT SITTING ON TOP*/
+.dropdown.hidden-checkbox:checked ~ label ~ .close-menu {
+    z-index: 3;
+}
+
+
+/* ############## CHECKBOX DROPDOWN MENU END ################ */
+/* ########################################################## */
+/* ############## EXPAND COLLAPSE ALL START ################# */
+.btn-as-link {
+  padding-left: 10px;
+  color: #22ACE0;
+  text-decoration: underline;
+}
+
+.question-group {
+  overflow-y: hidden;
+  margin: 15px 0;
+  padding: 0 15px;
+  border: 1px #999 solid;
+}
+
+.question-group label {
+  display: inline-block;
+  margin: 15px 0;
+}
+
+label[for*="widget"]:hover ~ .question-group .question-answer {
+  will-change: contents;
+}
+
+
+/*SET UP DEFAULT STYLE FOR TOGGLE-ALL GROUP AND INDIVIDUAL WIDGET*/
+.details.hidden-checkbox ~ .question-answer {
+  max-height: 0;
+  padding-bottom: 0;
+  transition: all 400ms ease-in-out;
+}
+
+/*TOGGLE ALL WIDGETS OPEN/CLOSED AND TOGGLE INDIVIDUAL WIDGET OPEN/CLOSED*/
+.details.hidden-checkbox:checked ~ .question-answer,
+.toggle-all.hidden-checkbox:checked ~ .question-group .question-answer {
+  padding-bottom: 15px;
+  max-height: 1000px;
+}
+
+/*TOGGLE INDIVIDUAL WIDGETS OPEN/CLOSED WHILE TOGGLE-ALL IS :CHECKED*/
+.toggle-all.hidden-checkbox:checked ~ .question-group .details.hidden-checkbox:checked ~ .question-answer {
+  max-height: 0;
+  padding-bottom: 0;
+}
+
+/*ROTATE CHEVRONS WHEN ALL WIDGETS ARE TOGGLED*/
+.toggle-all.hidden-checkbox:checked ~ .question-group label .chevron,
+.toggle-all.hidden-checkbox ~ .question-group .details.hidden-checkbox:checked + label .chevron {
+  transform: rotate(180deg);
+}
+
+/*ROTATE INDIVIDUAL CHEVRONS WHILE TOGGLE-ALL IS :CHECKED*/
+.toggle-all.hidden-checkbox + label .chevron,
+.toggle-all.hidden-checkbox ~ .question-group label .chevron,
+.toggle-all.hidden-checkbox:checked ~ .question-group .details.hidden-checkbox:checked + label .chevron {
+  transform: rotate(0deg);
+}
