@@ -9,8 +9,8 @@ body {
   font-size: 20px;
 }
 
-h2, h3 { 
-  text-align: center;  
+h2, h3 {
+  text-align: center;
 }
 
 h2 {
@@ -25,8 +25,14 @@ h3 {
   margin: 0 auto;
 }
 
-img {
+a {
+  color: #22ACE0;
+  text-decoration: none;
+}
 
+.prominent-link-container {
+  margin: 10% auto;
+  text-align: center;
 }
 
 .example-container, .slide-points {
@@ -38,7 +44,7 @@ img {
 
 .image-container {
   width: 100%;
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
   text-align: center;
 }
 
@@ -68,8 +74,7 @@ label, label .chevron {
   cursor: pointer;
 }
 
-input[type="checkbox"]:focus + label,
-input[type="radio"]:focus + label {
+input[type="checkbox"]:focus + .label-checkbox.keyboard-focus {
   outline: -webkit-focus-ring-color auto 5px;
 }
 
@@ -132,7 +137,7 @@ footer {
 }
 
 .prev {
-  left: 0; 
+  left: 0;
 }
 
 .slider-container .slide:target {
