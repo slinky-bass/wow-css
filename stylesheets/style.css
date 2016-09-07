@@ -44,7 +44,7 @@ a {
 
 .image-container {
   width: 100%;
-  margin: 50px auto 0 auto;
+  margin: 10px auto 0 auto;
   text-align: center;
 }
 
@@ -151,7 +151,7 @@ pre {
 }
 
 pre[class*="language-"] {
-  max-height: 77vh !important;
+  max-height: 74vh !important;
   padding: 0 0 0 10px !important;
 }
 
