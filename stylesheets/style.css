@@ -253,7 +253,7 @@ code {
   transition: all 400ms ease-in-out;
 }
 
-.details:hover {
+label:hover + .details {
   will-change: contents;
 }
 
@@ -352,7 +352,7 @@ code {
   font-size: 1.4rem;
 }
 
-.menu-item label:hover {
+.menu-item label:hover + .submenu {
   will-change: contents;
 }
 
@@ -376,41 +376,6 @@ code {
 }
 
 /* ############### CHECKBOX ACCORDION MENU END ############## */
-/* ########################################################## */
-/* ############# CHECKBOX DROPDOWN MENU START ############### */
-
-
-.dropdown .tab-content {
-  top: 100%;
-  opacity: 0;
-  transition: opacity 300ms ease-in-out;
-}
-
-.close-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-.dropdown.hidden-checkbox:checked ~ .tab-content {
-  z-index: 1;
-  opacity: 1;
-}
-
-.dropdown.hidden-checkbox:checked ~ label {
-  z-index: 2;
-}
-
-/*GET THE CLOSE-MENU LABEL AND INPUT SITTING ON TOP*/
-.dropdown.hidden-checkbox:checked ~ label ~ .close-menu {
-    z-index: 3;
-}
-
-
-/* ############## CHECKBOX DROPDOWN MENU END ################ */
 /* ########################################################## */
 /* ############## EXPAND COLLAPSE ALL START ################# */
 .btn-as-link {

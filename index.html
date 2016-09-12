@@ -303,7 +303,7 @@ label {
   transition: all 400ms ease-in-out;
 }
 
-.details:hover {
+label:hover + .details {
   will-change: contents;
 }
 
@@ -504,7 +504,7 @@ label {
 <code class="language-css">
 /* A BUNCH OF STYLES FOR THE MENU ITEMS AND LABELS */
 
-.menu-item label:hover {
+.menu-item label:hover + .submenu {
   will-change: contents;
 }
 
